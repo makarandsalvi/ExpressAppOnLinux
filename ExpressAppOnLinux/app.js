@@ -12,6 +12,9 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index_1.default);
 app.use('/users', user_1.default);
+app.use('/api', (req, res, next) => {
+    res.json({ "result": "success" });
+});
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
